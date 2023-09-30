@@ -1,0 +1,68 @@
+body{
+    background-image: url('https://media.istockphoto.com/id/841278796/photo/fresh-vegetables-and-herbs.jpg?s=612x612&w=0&k=20&c=eKzI9UcAKWdH6TZczUNQOje13QQIWHAaI9v5UzY6sbg=');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+    image-rendering: auto;
+    margin: 0;
+}
+
+.header{
+    background-color: white;
+    height: 11cqh;
+    margin: 0;
+    box-shadow: 0 8px 8px -4px lightgray;
+    display: flex;
+    
+    align-items: center;
+    
+}
+.header img {
+    /* float: left; */
+    width: 180px;
+    height: 11cqh;
+    color: white;
+    object-fit: contain;
+
+    
+}
+  
+  .header h1 {
+    color: lightblue;
+    align-items: center;
+    
+    
+}
+
+.container{
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+}
+
+.container p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    
+}
+.start_button{
+    font-weight: bolder;
+    font-size: 16px;
+    cursor: pointer;
+
+    border-color: green;
+    
+    color: white;
+    background-color: green;
+    border-radius: 8px;
+    padding: 2%;
+}
+
+  

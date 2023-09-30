@@ -1,0 +1,6 @@
+com/data/User.class
+com/servlet/LoginServlet.class
+com/data/activityLevel.class
+com/servlet/DatabaseConnection.class
+com/data/bodyGoal.class
+com/data/Meal.class

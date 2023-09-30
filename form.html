@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meal Planner</title>
+        <link rel = "stylesheet" type="text/css" href="form_style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+        <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+        <script defer src="form_script.js"></script>
+        
+    </head>
+
+    <body> 
+        <div class="header">
+            <img src="https://dynamic.brandcrowd.com/asset/logo/d5787595-2257-44db-a8b3-29880bf587f6/logo-search-grid-1x?logoTemplateVersion=1&v=637653947610000000&text=Calorie+Crafted"/>
+            
+        </div>
+
+       
+
+        
+
+        
+        
+
+        <div>
+           
+            <div id="multi-step-form-container">
+                <!-- Form Steps / Progress Bar -->
+                <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+                    <!-- Step 1 -->
+                    <li class="form-stepper-active text-center form-stepper-list" step="1">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle">
+                                <span>1</span>
+                            </span>
+                            <div class="label">BMR</div>
+                        </a>
+                    </li>
+                    <!-- Step 2 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>2</span>
+                            </span>
+                            <div class="label text-muted">More Info</div>
+                        </a>
+                    </li>
+                    <!-- Step 3 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>3</span>
+                            </span>
+                            <div class="label text-muted">Macros</div>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Step Wise Form Content -->
+                <form id="basicDetailsForm" name="basicDetailsForm" method="post" action="LoginServlet">
+
+                    
+                    <!-- Step 1 Content -->
+                    <section id="step-1" class="form-step">
+                        <h2 class="font-normal">BMR</h2>
+                        <!-- Step 1 input fields -->
+                        <div class="mt-3">
+                            
+                        
+                            <div class="form">
+                                <p class="error age-error"></p>
+                                <p class="error height-error"></p>
+                                <p class="error weight-error"></p>
+                                <p class="error gender-error"></p>
+                                <table>
+                                    <tr>
+                                        <td class="lbl"><label for="age">Age:</label></td>
+                                        <td><input class="fld" id="age" type="number" name="age" placeholder="years" ></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lbl"><label for="height">Height:</label></td>
+                                        <td><input class="fld" id="height" type="number" name="height" placeholder="inches" ></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="lbl"><label for="weight">Weight:</label></td>
+                                        <td><input class="fld" id="weight" type="number" name="weight" placeholder="pounds" ></td>
+                                    </tr>          
+                                    <tr>
+                                        <td class="lbl"> <label for="gender">Gender:</label></td>
+                                        <td class="lbl"> <label for="male">Male</label></td>
+                                        <td><input style="margin-left: -60px;" class="fld" id="male" type="radio" name="gender" value="Male"></td>
+                                        <td class="lbl"> <label for="female">Female</label></td>
+                                        <td><input style="margin-left: -60px;" class="fld" id="female" type="radio" name="gender" value="Female"></td>
+                                    </tr>
+
+                                    
+
+                                    
+
+                                </table>
+                            </div>
+
+                            <!-- <label for="age">Age</label>
+                            <input id="age" class="age" type="number" reqired/><br>
+
+                            <label for="height">Height</label>
+                            <input id="height" class="height" type="number" placeholder="feet" reqired/>
+                            <input id="height" class="height" type="number" placeholder="inches" reqired/><br>
+
+                            
+                            <label for="weight">Weight</label>
+                            <input id="weight" class="weight" type="number" placeholder="Weight" reqired/>
+                            
+                            <label for="gender">Gender</label>
+                            <input type="radio" id="gender" name="male" value="male">
+                            <label for="gender">Male</label>
+                            <input type="radio" id="gender" name="female" value="female">
+                            <label for="gender">Female</label><br>
+                            <p class="error gender-error"></p> -->
+                        </div>
+                        <div class="form_buttons">
+                            <button class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 2 Content, default hidden on page load. -->
+                    <section id="step-2" class="form-step no-display">
+                        <h2 class="font-normal">More Info</h2>
+                        <h3>What is your activity level?</h3>
+                        <!-- Step 2 input fields -->
+                        <div class="mt-3">
+                            <div class="step-2-form">
+                                <p class="error level-error"></p>
+                                <input type="radio" name="levels" id="sed" value="sed" checked>
+                                <label for="sed">Sedentary (little to no exercise)</label><br>
+
+                                <input type="radio" name="levels" id="light" value="light">
+                                <label for="light">Lightly Active (light exercise 1-3 days/week)</label><br>
+
+                                <input type="radio" name="levels" id="mod" value="mod">
+                                <label for="mod">Moderately active (moderate exercise 3-5 days/week)</label><br>
+
+                                <input type="radio" name="levels" id="very" value="very">
+                                <label for="very">Very active (very strenuous exercise or physical job 6-7 days/week)</label><br>
+
+                                <input type="radio" name="levels" id="exe" value="exe">
+                                <label for="exe">Extremely active (intense activity daily)</label><br>          
+                            </div> 
+                        </div>
+
+                        <h3>What is your fitness goal?</h3> 
+
+                        <div class="mt-3">
+                            <div class="step-2-form">
+                                <input type="radio" name="goal" id="maj_loss" value="maj_loss">
+                                <label for="maj_loss">Major Weight Loss (lose 2 pounds a week)</label><br>  
+
+                                <input type="radio" name="goal" id="min_loss" value="min_loss">
+                                <label for="min_loss">Minor Weight Loss (lose 1 pound a week)</label><br>  
+
+                                <input type="radio" name="goal" id="main" value="maintain" checked>
+                                <label for="main">Maintain (maintain current weight) </label><br>  
+
+                                <input type="radio" name="goal" id="min_gain" value="minor_gain">
+                                <label for="min_gain"> Minor Weight Gain (gain 1 pound a week) </label><br>  
+
+                                <input type="radio" name="goal" id="maj_gain" value="major_gain">
+                                <label for="maj_gain"> Major Weight Gain (gain 2 pounds a week) </label><br>          
+                            </div>                       
+                        </div>
+                        <div class="form_buttons">
+                            <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 3 Content, default hidden on page load. -->
+                    <section id="step-3" class="form-step no-display">
+                        <h2 class="font-normal">Macros</h2>
+                        <!-- Step 3 input fields -->
+
+                        <div class ="mt-3">
+                            <select id="diet" name="diet" onchange="updateChart()">
+                                <option value="default"  selected>Default</option>
+                                <option value="keto">Ketogenic</option>
+                                <option value="low-fat">Low-Fat</option>
+                                <option value="low-carb">Low-Carb</option>
+                                <option value="low-protein">High-Protein</option>
+                              </select>
+
+                        </div>
+                        
+                            
+                        <div class="pie_chart_img">
+                            <canvas id="mychart"></canvas>
+                        </div>
+
+                        <div class ="mt-3">
+                            <label for="num_meals" style="margin-right: 10px;">How many meals would you like to eat a day?</label>
+                            <select id="num_meals" name="num_meals">
+                                <option value="3"  selected>3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                         
+                              </select>
+
+                        </div>
+
+
+
+                        
+                        
+                        
+                        <div class="form_buttons">
+                            <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
+                            <input class="button submit-btn" type="submit" value="Submit" name="submit" />
+                        </div>
+                    </section>
+                </form>
+            </div>
+
+           
+        </div>
+
+        
+    </body>
+    
+
+    <!-- <body> -->
+
+<!--         
+        <div class = "input">
+
+            <form id="form" action="" class = "form-horizontal">
+                <input class="age" type="number" placeholder="Age" reqired/>
+                <input class="height" type="number" placeholder="Height (in.)" reqired/>
+                <input class="weight" type="number" placeholder="Weight" reqired/> -->
+
+                
+                <!-- <div class="age">
+                    <label for="age">Age</label>
+                    <input type="text" id="age" name="age" size="4" input style="margin-left:25px" required>
+                    <label for="age">years</label><br>
+                    <p class="error age-error"></p>
+                </div>
+
+                <div class="height">
+                    <label for="height">Height</label>
+                    <input type="text" id="feet" name="feet" size="4" input style="margin-left:8px">
+                    <label for="feet">ft.</label>
+                    <input type="text" id="inches" name="inches" size="4">
+                    <label for="inches">in.</label><br>
+                    <p class="error height-error"></p>
+                </div>
+
+                <div class="weight">
+                    <label for="weight">Weight</label>
+                    <input type="text" id="weight" name="weight" size="4" input style="margin-left:5px">
+                    <label for="weight">pounds</label><br>
+                    <p class="error weight-error"></p>
+                </div>
+
+                <div class="gender">
+                    <label for="gender">Gender</label>
+                    <input type="radio" id="gender" name="male" value="male">
+                    <label for="gender">Male</label>
+                    <input type="radio" id="gender" name="female" value="female">
+                    <label for="gender">Female</label><br>
+                    <p class="error gender-error"></p>
+                </div>
+
+                <div class="activity">
+                    <label for="activity">Activity</label>
+                    <select id="activity" name="activity">
+                        <option value="sedentary">Sedentary: little to no exercise</option>
+                        <option value="lightly_active">Light: exercise 1-3 days/week</option>
+                        <option value="moderately_active">Moderate: exercise 3-5 days/week</option>
+                        <option value="very_active">Very Active: very strenuous exercise or physical job 6-7 days/week</option>
+                        <option value="extra_active">Extra Active: intense activity daily</option>
+                    </select><br>
+                </div>
+
+                <div class="calculate">
+                    <input type="submit" value="CALCULATE">
+
+                </div>
+
+                 -->
+
+
+
+
+              <!-- </form>
+            
+        </div>
+
+    </body> -->
+</html>
+
+
+
+
+
+<!-- h3 class="font-normal">Breakfast</h3>
+                                <button id="chicken_btn1" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Poultry</button>
+                                <button id="beef_btn1" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Beef</button>
+                                <button id="pork_btn1" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pork</button>
+                                <button id="pasta_btn1" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pasta</button>
+                                <button id="seafood_btn1" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Seafood</button>
+                                <button id="vege_btn1" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Vegetarian</button>
+
+                                <h3 class="font-normal">Lunch</h3>
+                                <button id="chicken_btn2" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Poultry</button>
+                                <button id="beef_btn2" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Beef</button>
+                                <button id="pork_btn2" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pork</button>
+                                <button id="pasta_btn2" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pasta</button>
+                                <button id="seafood_btn2" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Seafood</button>
+                                <button id="vege_btn2" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Vegetarian</button>
+
+                                <h3 class="font-normal">Dinner</h3>
+                                <button id="chicken_btn3" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Poultry</button>
+                                <button id="beef_btn3" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Beef</button>
+                                <button id="pork_btn3" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pork</button>
+                                <button id="pasta_btn3" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pasta</button>
+                                <button id="seafood_btn3" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Seafood</button>
+                                <button id="vege_btn3" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Vegetarian</button>
+
+                                <h3 class="font-normal">Snack</h3>
+                                <button id="chicken_btn4" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Poultry</button>
+                                <button id="beef_btn4" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Beef</button>
+                                <button id="pork_btn4" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pork</button>
+                                <button id="pasta_btn4" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Pasta</button>
+                                <button id="seafood_btn4" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Seafood</button>
+                                <button id="vege_btn4" class="food_btn" onclick="changeIcon(this)"><i id="faPlus" class="fa fa-plus"></i> Vegetarian</button> -->

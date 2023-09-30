@@ -1,0 +1,110 @@
+
+body{
+  height: 100%;
+  margin: 0;
+
+
+}
+
+.header{
+  background-color: white;
+  height: 11cqh;
+  margin: 0;
+  box-shadow: 0 8px 8px -4px lightgray;
+  display: flex;
+  
+  align-items: center;
+  
+}
+.header img {
+  /* float: left; */
+  width: 180px;
+  height: 11cqh;
+  color: white;
+  object-fit: contain;  
+}
+
+.chart{
+  height: 40vh;
+  margin-top: -100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+
+.container {
+  width: 96vw;
+  height: 100%;
+
+  border: 2px;
+
+
+  margin-top: 2%;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+
+  overflow:hidden;
+
+ 
+}
+.day_box{
+  display: flex; 
+  justify-content: center; 
+  
+  margin-top: -3%;
+  width: 100%; 
+  height: 100%;
+}
+
+
+
+
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-template-rows: 5% fit-content(40%);
+  grid-gap: 1em 1em;
+  grid-auto-flow: row dense;
+  
+}
+
+.item {
+  background: white;
+  border-radius: 0.25em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border: 5px black solid;
+  display: inline-block;
+}
+
+.item img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.meal_info_btn{
+  border: 0;
+  cursor: pointer;
+}
+
+.refresh_btn{
+  cursor: pointer;
+  margin-bottom: 3%;
+}
+
+
+
+
+.heading {
+  padding: 1px;
+  padding-left: 5px;
+  height: 150%;
+}
+
